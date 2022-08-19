@@ -1,0 +1,35 @@
+/* clear all margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  /* push footer down */
+  margin-top: auto;
+  background-color: #111111;
+  color: white;
+  height: 40px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > p {
+    font-size: large;
+    font-weight: bold;
+}
+
+footer > p > span {
+  /* change heart color to red */
+  color: red;
+}
