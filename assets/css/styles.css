@@ -12,6 +12,21 @@ body {
   justify-content: center;
 }
 
+main {
+  width: 50%;
+}
+
+#topBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#questionSection {
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+}
+
 footer {
   /* push footer down */
   margin-top: auto;
@@ -25,8 +40,8 @@ footer {
 }
 
 footer > p {
-    font-size: large;
-    font-weight: bold;
+  font-size: large;
+  font-weight: bold;
 }
 
 footer > p > span {
