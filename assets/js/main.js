@@ -108,6 +108,7 @@ submitBtnEl.addEventListener("click", function () {
   }
   scores[inputEl.value.trim()] = score;
   localStorage.setItem("scores", JSON.stringify(scores));
+  location.href = "highscores.html";
 });
 
 function renderTime() {
