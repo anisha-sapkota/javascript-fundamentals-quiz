@@ -17,6 +17,8 @@ var questions = [
 
 var questionSectionEl = document.getElementById("questionSection");
 var startButtonEl = document.getElementById("startButton");
+var inputEl = document.createElement("input");
+var submitBtnEl = document.createElement("button");
 
 startButtonEl.addEventListener("click", function () {
   renderTime();
@@ -24,7 +26,6 @@ startButtonEl.addEventListener("click", function () {
 });
 
 function checkAnswer(event) {
-  console.log(event.srcElement.attributes["data-correct"]);
   if ("data-correct" in event.srcElement.attributes) {
     score++;
   } else {
@@ -66,13 +67,48 @@ function renderEnd() {
 
   var titleEl = document.createElement("h2");
   var messageEl = document.createElement("p");
+  var labelEl = document.createElement("label");
 
   titleEl.textContent = "All done!";
   messageEl.textContent = `Your final score is ${score}.`;
 
+  labelEl.setAttribute("for", "score");
+  labelEl.textContent = "Enter initials:";
+
+  inputEl.setAttribute("type", "text");
+  inputEl.setAttribute("name", "score");
+  inputEl.setAttribute("id", "scoreInput");
+
+  inputEl.addEventListener("input", function (event) {
+    if (event.srcElement.value.length > 0) {
+      submitBtnEl.removeAttribute("disabled");
+    } else {
+      submitBtnEl.setAttribute("disabled", true);
+    }
+  });
+
+  submitBtnEl.setAttribute("disabled", true);
+  submitBtnEl.textContent = "Submit";
+
   questionSectionEl.appendChild(titleEl);
   questionSectionEl.appendChild(messageEl);
+  questionSectionEl.appendChild(labelEl);
+  questionSectionEl.appendChild(inputEl);
+  questionSectionEl.appendChild(submitBtnEl);
+
+  window.onload = inputEl.focus();
 }
+
+submitBtnEl.addEventListener("click", function () {
+  var scores = localStorage.getItem("scores");
+  if (scores) {
+    scores = JSON.parse(scores);
+  } else {
+    scores = {};
+  }
+  scores[inputEl.value.trim()] = score;
+  localStorage.setItem("scores", JSON.stringify(scores));
+});
 
 function renderTime() {
   var timerEl = document.getElementById("timer");
