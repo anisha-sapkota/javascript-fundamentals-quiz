@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Javascript Quiz</title>
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Javascript Quiz</title>
   </head>
   <body>
     <header>
@@ -13,7 +20,7 @@
     </header>
     <main>
       <div id="topBar">
-        <a href="#">View high scores</a>
+        <a href="highscores.html">View high scores</a>
         <p>Time: <span id="timer">0</span></p>
       </div>
       <section id="questionSection">
@@ -23,7 +30,7 @@
           limit. Keep in mind that incorrect answer will penalize your
           score/time by 10 seconds!
         </p>
-        <button id="startButton">Start Quiz</button>
+        <button class="styledButton" id="startButton">Start Quiz</button>
       </section>
     </main>
     <footer>

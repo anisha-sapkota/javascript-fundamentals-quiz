@@ -1,7 +1,6 @@
 /* clear all margins and padding */
 * {
   margin: 0;
-  padding: 0;
 }
 
 body {
@@ -10,10 +9,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  padding: 10px;
 }
 
 main {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #topBar {
@@ -21,10 +27,47 @@ main {
   justify-content: space-between;
 }
 
+#startButton {
+  margin: 5px;
+}
+
 #questionSection {
   text-align: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+#questionSection > h2 {
+  margin-bottom: 10px;
+}
+
+.styledButton {
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 200px;
+  font-size: large;
+  background-color: #009966;
+  color: white;
+  border: none;
+}
+
+.styledButton:hover {
+  background-color: #00724c;
+  cursor: pointer;
+}
+
+.inputContainer {
+  display: inline-flex;
+  margin: 10px 0;
+}
+
+.inputContainer > input {
+  margin-left: 5px;
+}
+
+#submitButton {
+  width: 80px;
 }
 
 footer {
@@ -47,4 +90,30 @@ footer > p {
 footer > p > span {
   /* change heart color to red */
   color: red;
+}
+
+/* High scores Page */
+#highScores {
+  list-style-type: decimal;
+  list-style-position: inside;
+  padding-left: 0px;
+  width: 250px;
+  margin: auto;
+}
+
+#highScores > li {
+  margin-bottom: 2px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#buttonContainer > button {
+  margin: 5px;
 }

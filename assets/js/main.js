@@ -1,5 +1,6 @@
 var time = 75;
 var score = 0;
+var timer;
 
 var questions = [
   {
@@ -39,6 +40,7 @@ function checkAnswer(event) {
   if (questions.length > 0) {
     renderQuestion(questions.pop());
   } else {
+    clearInterval(timer);
     renderEnd();
   }
 }
@@ -53,6 +55,7 @@ function renderQuestion(question) {
 
   for (var i = 0; i < options.length; i++) {
     var buttonEl = document.createElement("button");
+    buttonEl.className = "styledButton";
     buttonEl.textContent = options[i];
     buttonEl.setAttribute("onclick", "checkAnswer(event)");
     if (options[i] === question.answer) {
@@ -66,11 +69,14 @@ function renderEnd() {
   questionSectionEl.innerHTML = "";
 
   var titleEl = document.createElement("h2");
+  var containerEl = document.createElement("div");
   var messageEl = document.createElement("p");
   var labelEl = document.createElement("label");
 
   titleEl.textContent = "All done!";
   messageEl.textContent = `Your final score is ${score}.`;
+
+  containerEl.className = "inputContainer";
 
   labelEl.setAttribute("for", "score");
   labelEl.textContent = "Enter initials:";
@@ -88,12 +94,15 @@ function renderEnd() {
   });
 
   submitBtnEl.setAttribute("disabled", true);
+  submitBtnEl.id = "submitButton";
+  submitBtnEl.className = "styledButton";
   submitBtnEl.textContent = "Submit";
 
   questionSectionEl.appendChild(titleEl);
   questionSectionEl.appendChild(messageEl);
-  questionSectionEl.appendChild(labelEl);
-  questionSectionEl.appendChild(inputEl);
+  containerEl.appendChild(labelEl);
+  containerEl.appendChild(inputEl);
+  questionSectionEl.appendChild(containerEl);
   questionSectionEl.appendChild(submitBtnEl);
 
   window.onload = inputEl.focus();
@@ -119,7 +128,7 @@ function renderTime() {
 function startQuiz() {
   questions = shuffle(questions);
   renderQuestion(questions.pop());
-  var timer = setInterval(function () {
+  timer = setInterval(function () {
     time--;
     renderTime();
     if (time <= 0) {
