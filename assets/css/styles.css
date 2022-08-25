@@ -1,4 +1,4 @@
-/* clear all margins and padding */
+/* clear all margins */
 * {
   margin: 0;
 }
@@ -9,22 +9,40 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* Set font-family for body */
   font-family: "Montserrat", sans-serif;
 }
-h1 {
+header > h1 {
   padding: 10px;
 }
 
 main {
-  width: 50%;
+  max-width: 768px;
+  /* flex, column and center */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 100%;
+  }
 }
 
 #topBar {
+  width: 100%;
   display: flex;
+  /* space in middle */
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 #startButton {
@@ -33,15 +51,18 @@ main {
 
 #questionSection {
   text-align: center;
+  /* flex, column and center */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* add space on bottom of question */
 #questionSection > h2 {
   margin-bottom: 10px;
 }
 
+/* button styling */
 .styledButton {
   padding: 5px;
   margin-bottom: 5px;
@@ -52,12 +73,14 @@ main {
   border: none;
 }
 
+/* change color and show pointer on hover */
 .styledButton:hover {
   background-color: #00724c;
   cursor: pointer;
 }
 
 .inputContainer {
+  /* display items in same row */
   display: inline-flex;
   margin: 10px 0;
 }
@@ -68,6 +91,11 @@ main {
 
 #submitButton {
   width: 80px;
+}
+
+#result {
+  text-align: center;
+  font-size: 48px;
 }
 
 footer {
@@ -93,11 +121,15 @@ footer > p > span {
 }
 
 /* High scores Page */
+
 #highScores {
+  /* show numbers */
   list-style-type: decimal;
+  /* push numbers to li */
   list-style-position: inside;
   padding-left: 0px;
   width: 250px;
+  /* horizontal center */
   margin: auto;
 }
 
